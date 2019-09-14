@@ -20,7 +20,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CardBusinessInfoImpl {
+public class OptionalPoint {
 
     @Id
     @Column
@@ -32,26 +32,11 @@ public class CardBusinessInfoImpl {
     @NotEmpty
     private String title;
 
-    @OneToOne(mappedBy = "cashIn")
-    private CardBusinessInfo cashIn;
-
-    @OneToOne(mappedBy = "cashOut")
-    private CardBusinessInfo cashOut;
-
-    @OneToOne(mappedBy = "tax")
-    private CardBusinessInfo tax;
-
-    @OneToOne(mappedBy = "debitCard")
-    private CardBusinessInfo debitCard;
-
-    @OneToOne(mappedBy = "recommendation")
-    private CardBusinessInfo recommendation;
-
     @OneToMany(mappedBy = "cardBusinessInfo")
     private List<InfoField> infoFieldList;
 
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "card_business_info_id")
-    private CardBusinessInfo cardBusinessInfoImpl;
+    private CardBusinessInfo cardBusinessInfo;
 
 }

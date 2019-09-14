@@ -28,27 +28,27 @@ public class CardBusinessInfo {
     private long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_business_info_impl_cashin_id")
-    private CardBusinessInfoImpl cashIn;
+    @JoinColumn(name = "cash_in_id", referencedColumnName = "id")
+    private Cash cashIn;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_business_info_impl_cashout_id")
-    private CardBusinessInfoImpl cashOut;
+    @JoinColumn(name = "cash_out_id", referencedColumnName = "id")
+    private Cash cashOut;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_business_info_impl_tax_id")
-    private CardBusinessInfoImpl tax;
+    @JoinColumn(name = "tax_id", referencedColumnName = "id")
+    private Tax tax;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_business_info_impl_debitcard_id")
-    private CardBusinessInfoImpl debitCard;
+    @JoinColumn(name = "debit_card_id")
+    private DebitCard debitCard;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_business_info_impl_recommendation_id")
-    private CardBusinessInfoImpl recommendation;
+    @JoinColumn(name = "recommendation_id")
+    private Recommendation recommendation;
 
-    @OneToMany(mappedBy = "cardBusinessInfoImpl")
-    private List<CardBusinessInfoImpl> userFields;
+    @OneToMany(mappedBy = "cardBusinessInfo")
+    private List<OptionalPoint> userFields;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "cardBusinessInfo")
     private CardBusiness cardBusiness;

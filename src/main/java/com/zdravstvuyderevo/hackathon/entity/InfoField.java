@@ -46,6 +46,22 @@ public class InfoField {
 
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "card_business_info_impl_id")
-    private CardBusinessInfoImpl cardBusinessInfo;
+    private OptionalPoint cardBusinessInfo;
+
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "cash_info_list_id")
+    private Cash cashInfoFieldList;
+
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "tax_info_list_id")
+    private Tax taxInfoFieldList;
+
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "debit_card_info_list_id")
+    private DebitCard debitCardInfoFieldList;
+
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "recommendation_info_list_id")
+    private Recommendation recommendationInfoFieldList;
 
 }
