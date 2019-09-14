@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CardBusiness {
+public class CardBusiness implements Comparable<CardBusiness> {
 
     @Id
     @Column
@@ -39,4 +39,10 @@ public class CardBusiness {
     @JoinColumn(name = "card_business_info_id", referencedColumnName = "id")
     private CardBusinessInfo cardBusinessInfo;
 
+    // This is dirty shit
+    // This is necessary for transaction mock. In real transaction definition it have to be rewritten to compare by transaction sending id
+    @Override
+    public int compareTo(CardBusiness o) {
+        return this.getCardName().equals(o.getCardName())? 0 : -1;
+    }
 }
