@@ -36,7 +36,7 @@ public class TransactionMockService {
                 .collect(Collectors.toList());
 
         if (cardBusinessFilteredList.size() > 0) {
-            // modify cash value in needed card
+            // TODO: modify cash value
         } else {
             cardBusinessService.putCardBusinessForOtherTransactions(OTHER_CARD_TITLE);
         }
